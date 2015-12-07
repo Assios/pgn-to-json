@@ -29,7 +29,7 @@ def pgn_to_json(file_name):
         metadata[i] = re.sub("\[|\]", "", metadata[i])
         data[re.findall(r"([^\s]+)", metadata[i])[0].lower()] = re.findall(r'"(.*?)"', metadata[i])[0]
 
-    if (", " in data["white"] and "," in data["black"]):
+    if (", " in data["white"] and ", " in data["black"]):
         for color in ["white", "black"]:
                 data[color + "_surname"], data[color + "_first_name"] = [i.split()[0] for i in data.get(color).split(", ")]
     elif len(data["white"].split()) > 1:
